@@ -1,4 +1,4 @@
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 import "./globals.css";
 
 export const metadata = {
@@ -13,9 +13,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="es">
-            <body className="relative">
+            <body className="relative dark:bg-gray-900">
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );
