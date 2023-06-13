@@ -38,6 +38,17 @@ const Footer = () => {
                     ))}
                 </div>
             </div>
+            <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 dark:border-gray-500 sm:px-16 px-6 py-10">
+                <p className="text-gray-400">{`@${date} Todos los derechos reservados`}</p>
+                <div className="footer__copyrights-link">
+                    <Link href="/" className="text-gray-400">
+                        Política de privacidad
+                    </Link>
+                    <Link href="/" className="text-gray-400">
+                        Términos de uso
+                    </Link>
+                </div>
+            </div>
         </footer>
     );
 };
