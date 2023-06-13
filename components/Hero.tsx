@@ -6,13 +6,13 @@ const Hero = () => {
     const handleScroll = () => {};
 
     return (
-        <div className="hero darK:bg-gray-900">
+        <section className="hero dark:bg-gray-900">
             <div className="flex-1 pt-36 padding-x">
-                <h1 className="hero__title">
+                <h1 className="hero__title dark:text-white">
                     Encuentre, reserve o alquile un automóvil, ¡rápida y
                     fácilmente!
                 </h1>
-                <p className="hero__subtitle">
+                <p className="hero__subtitle dark:text-gray-300">
                     Optimice su experiencia de alquiler de coches con nuestro
                     sencillo proceso de reserva.
                 </p>
@@ -20,6 +20,7 @@ const Hero = () => {
                     title="Explorar carros"
                     containerStyles="bg-primary-blue text-white rounded-full mt-10"
                     handleClick={handleScroll}
+                    typeBtn="button"
                 />
             </div>
             <div className="hero__image-container">
@@ -34,7 +35,7 @@ const Hero = () => {
                     <div className="hero__image-overlay" />
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
