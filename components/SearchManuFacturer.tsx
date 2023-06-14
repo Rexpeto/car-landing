@@ -1,6 +1,6 @@
 "use client";
 import { Combobox, Transition } from "@headlessui/react";
-import { FaCar } from "react-icons/fa";
+import { FaCar, FaCheckCircle } from "react-icons/fa";
 import { SearchManuFacturerProps } from "@/types";
 import { manufacturers } from "@/constants";
 import { Fragment, useState } from "react";
@@ -57,14 +57,40 @@ const SearchManuFacturer = ({
                                         key={manuFacturer}
                                         value={manuFacturer}
                                         className={({ active }) =>
-                                            `relative search-manufacturer__option dark:text-white cursor-pointer ${
+                                            `relative search-manufacturer__option dark:text-white ${
                                                 active
                                                     ? "bg-gray-200 dark:bg-gray-700"
                                                     : "bg-gray-100 dark:bg-gray-800"
                                             } transition duration-150`
                                         }
                                     >
-                                        {manuFacturer}
+                                        {({ selected, active }) => (
+                                            <>
+                                                <span
+                                                    className={`block truncate ${
+                                                        selected
+                                                            ? "font-medium"
+                                                            : "font-normal"
+                                                    }`}
+                                                >
+                                                    {manuFacturer}
+                                                </span>
+                                                {selected ? (
+                                                    <span
+                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                                                            active
+                                                                ? "text-white"
+                                                                : "text-teal-600"
+                                                        }`}
+                                                    >
+                                                        <FaCheckCircle
+                                                            className="h-5 w-5"
+                                                            aria-hidden="true"
+                                                        />
+                                                    </span>
+                                                ) : null}
+                                            </>
+                                        )}
                                     </Combobox.Option>
                                 ))
                             )}
