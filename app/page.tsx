@@ -1,6 +1,22 @@
 import { Hero, SearchBar, CustomFilter } from "@/components";
+import GridCars from "@/components/gridCars";
+import clientAxios from "@/config/axios";
 
-export default function Home() {
+export default async function Home() {
+    const Cars = async () => {
+        try {
+            const { data } = await clientAxios("?model=supra");
+
+            return data;
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    const allCars = await Cars();
+    const isDataEmpty =
+        !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+
     return (
         <main className="overflow-hidden">
             <Hero />
@@ -20,6 +36,15 @@ export default function Home() {
                         <CustomFilter title="modelo" />
                     </div>
                 </div>
+                {!isDataEmpty ? (
+                    <GridCars cars={allCars} />
+                ) : (
+                    <div className="hoem__error-container">
+                        <h2 className="dark:text-white font-semibold text-3xl">
+                            Oops!! No hay resultados
+                        </h2>
+                    </div>
+                )}
             </div>
         </main>
     );
