@@ -1,6 +1,7 @@
 "use client";
 import { CarProps } from "@/types";
 import { Dialog, Transition } from "@headlessui/react";
+import Image from "next/image";
 import { Fragment } from "react";
 import { IoCloseCircle } from "react-icons/io5";
 
@@ -11,6 +12,7 @@ interface CardDetailsProps {
 }
 
 const CardDetails = ({ isOpen, car, closeModal }: CardDetailsProps) => {
+    const { make, model } = car;
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -56,7 +58,15 @@ const CardDetails = ({ isOpen, car, closeModal }: CardDetailsProps) => {
                                     </button>
 
                                     <div className="flex-1 flex flex-col gap-3">
-                                        <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg"></div>
+                                        <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
+                                            <Image
+                                                src="/hero.png"
+                                                alt={`${make} ${model}`}
+                                                fill
+                                                priority
+                                                className="object-contain"
+                                            />
+                                        </div>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
