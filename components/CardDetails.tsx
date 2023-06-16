@@ -57,7 +57,7 @@ const CardDetails = ({ isOpen, car, closeModal }: CardDetailsProps) => {
                                         <IoCloseCircle className="text-white text-2xl object-contain" />
                                     </button>
 
-                                    <div className="flex-1 flex flex-col gap-3">
+                                    <div className="flex-1 flex flex-col gap-3 p-2">
                                         <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                                             <Image
                                                 src="/hero.png"
@@ -97,6 +97,30 @@ const CardDetails = ({ isOpen, car, closeModal }: CardDetailsProps) => {
                                                     className="object-contain"
                                                 />
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex-1 flex flex-col gap-2 p-2">
+                                        <h2 className="capitalize font-semibold text-xl dark:text-white">
+                                            {make} {model}
+                                        </h2>
+
+                                        <div className="mt-3 flex flex-wrap gap-4">
+                                            {Object.entries(car).map(
+                                                ([key, value]) => (
+                                                    <div
+                                                        className="flex justify-between gap-5 w-full text-right"
+                                                        key={key}
+                                                    >
+                                                        <h4 className="dark:text-gray-300 first-letter:uppercase">
+                                                            {key}
+                                                        </h4>
+                                                        <p className="dark:text-white font-semibold capitalize">
+                                                            {value}
+                                                        </p>
+                                                    </div>
+                                                )
+                                            )}
                                         </div>
                                     </div>
                                 </Dialog.Panel>
