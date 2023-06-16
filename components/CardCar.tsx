@@ -1,7 +1,7 @@
 "use client";
 
 import { CarProps } from "@/types";
-import { calculatorRent } from "@/utils";
+import { calculatorRent, generateCarImageUrl } from "@/utils";
 import Image from "next/image";
 import { GiCartwheel, GiOverdrive, GiGasPump } from "react-icons/gi";
 import CustomButton from "./CustomButton";
@@ -37,7 +37,7 @@ const CardCar = ({ car }: cardCardProps) => {
 
             <div className="relative w-full h-40 my-3 object-contain">
                 <Image
-                    src="/hero.png"
+                    src={generateCarImageUrl(car)}
                     alt={`${model} ${year}`}
                     fill
                     priority
