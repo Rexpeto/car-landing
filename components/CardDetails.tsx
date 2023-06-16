@@ -113,7 +113,9 @@ const CardDetails = ({ isOpen, car, closeModal }: CardDetailsProps) => {
                                                         key={key}
                                                     >
                                                         <h4 className="dark:text-gray-300 first-letter:uppercase">
-                                                            {key}
+                                                            {key
+                                                                .split("_")
+                                                                .join(" ")}
                                                         </h4>
                                                         <p className="dark:text-white font-semibold capitalize">
                                                             {value}
