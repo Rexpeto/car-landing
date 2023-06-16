@@ -5,6 +5,8 @@ import { calculatorRent } from "@/utils";
 import Image from "next/image";
 import { GiCartwheel, GiOverdrive, GiGasPump } from "react-icons/gi";
 import CustomButton from "./CustomButton";
+import { useState } from "react";
+import CardDetails from "./CardDetails";
 
 interface cardCardProps {
     car: CarProps;
@@ -13,6 +15,12 @@ interface cardCardProps {
 const CardCar = ({ car }: cardCardProps) => {
     const { city_mpg, year, make, model, transmission, drive } = car;
     const rent = calculatorRent(city_mpg, year);
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleModal = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div className="car-card dark:bg-gray-700 dark:hover:bg-gray-600 group cursor-pointer transition duration-150">
@@ -62,9 +70,15 @@ const CardCar = ({ car }: cardCardProps) => {
                     <CustomButton
                         title="Ver más"
                         containerStyles="w-full py-[16px] rounded-full bg-primary-blue text-white font-bold hover:bg-blue-700 transition duration-150"
+                        handleClick={() => handleModal()}
                     />
                 </div>
             </div>
+            <CardDetails
+                isOpen={isOpen}
+                car={car}
+                closeModal={() => handleModal()}
+            />
         </div>
     );
 };
