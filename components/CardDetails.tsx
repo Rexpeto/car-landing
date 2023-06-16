@@ -67,6 +67,37 @@ const CardDetails = ({ isOpen, car, closeModal }: CardDetailsProps) => {
                                                 className="object-contain"
                                             />
                                         </div>
+                                        <div className="flex gap-3">
+                                            <div className="relative flex-1 w-full h-24 bg-gray-200 dark:bg-gray-700 rounded-lg">
+                                                <Image
+                                                    src="/hero.png"
+                                                    alt={`${make} ${model}`}
+                                                    fill
+                                                    priority
+                                                    className="object-contain"
+                                                />
+                                            </div>
+
+                                            <div className="relative flex-1 w-full h-24 bg-gray-200 dark:bg-gray-700 rounded-lg">
+                                                <Image
+                                                    src="/hero.png"
+                                                    alt={`${make} ${model}`}
+                                                    fill
+                                                    priority
+                                                    className="object-contain"
+                                                />
+                                            </div>
+
+                                            <div className="relative flex-1 w-full h-24 bg-gray-200 dark:bg-gray-700 rounded-lg">
+                                                <Image
+                                                    src="/hero.png"
+                                                    alt={`${make} ${model}`}
+                                                    fill
+                                                    priority
+                                                    className="object-contain"
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
