@@ -1,5 +1,7 @@
 import { Footer, Header } from "@/components";
 import "./globals.css";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
     title: "Landing Car",
@@ -14,9 +16,7 @@ export default function RootLayout({
     return (
         <html lang="es">
             <body className="relative dark:bg-gray-900">
-                <Header />
-                {children}
-                <Footer />
+                <Suspense fallback={<Loading />}>{children}</Suspense>
             </body>
         </html>
     );
