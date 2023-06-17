@@ -1,5 +1,5 @@
 import { CarProps } from "@/types";
-import CardCar from "./CardCar";
+import { CardCar } from "@/components";
 
 const GridCars = ({ cars }: any) => {
     return (
