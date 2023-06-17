@@ -31,7 +31,7 @@ const CardDetails = ({ isOpen, car, closeModal }: CardDetailsProps) => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0 scale-95"
                     >
-                        <div className="fixed inset-0 bg-black bg-opacity-25 blur-lg"></div>
+                        <div className="fixed inset-0 bg-black bg-opacity-25 blur"></div>
                     </Transition.Child>
 
                     <div className="fixed inset-0 overflow-y-hidden">
