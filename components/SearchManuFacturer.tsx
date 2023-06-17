@@ -3,7 +3,7 @@ import { Combobox, Transition } from "@headlessui/react";
 import { FaCar, FaCheckCircle } from "react-icons/fa";
 import { SearchManuFacturerProps } from "@/types";
 import { manufacturers } from "@/constants";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 const SearchManuFacturer = ({
     manuFacturer,
@@ -23,7 +23,7 @@ const SearchManuFacturer = ({
 
     return (
         <div className="search-manufacturer border rounded dark:border-gray-700">
-            <Combobox>
+            <Combobox value={manuFacturer} onChange={setManuFacturer}>
                 <div className="relative w-full">
                     <Combobox.Button className="absolute top-[14px] ml-2 dark:text-white">
                         <FaCar />
