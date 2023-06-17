@@ -4,9 +4,8 @@ import { CarProps } from "@/types";
 import { calculatorRent, generateCarImageUrl } from "@/utils";
 import Image from "next/image";
 import { GiCartwheel, GiOverdrive, GiGasPump } from "react-icons/gi";
-import CustomButton from "./CustomButton";
+import { CustomButton, CardDetails } from "@/components";
 import { useState } from "react";
-import CardDetails from "./CardDetails";
 
 interface cardCardProps {
     car: CarProps;
