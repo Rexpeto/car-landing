@@ -1,19 +1,15 @@
 import { Hero, SearchBar, CustomFilter, Header, Footer } from "@/components";
 import GridCars from "@/components/gridCars";
-import clientAxios from "@/config/axios";
+import getCars from "@/utils/getCars";
 
-export default async function Home() {
-    const Cars = async () => {
-        try {
-            const { data } = await clientAxios("?model=supra");
-
-            return data;
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
-    const allCars = await Cars();
+export default async function Home({ searchParams }) {
+    const allCars = await getCars({
+        manufacturer: searchParams.manufacturer || "",
+        year: searchParams.year || 2023,
+        fuel: searchParams.fuel || "",
+        limit: searchParams.limit || 10,
+        model: searchParams.model || ""
+    });
     const isDataEmpty =
         !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
