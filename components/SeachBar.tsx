@@ -61,6 +61,7 @@ const SearchBar = () => {
                     value={model}
                     onChange={e => setModel(e.target.value)}
                     className="searchbar__input relative border border-gray-700 rounded dark:text-white"
+                    autoComplete="off"
                 />
                 <SearchButton otherClasses="sm:hidden dark:text-white" />
             </div>
