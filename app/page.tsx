@@ -39,9 +39,9 @@ export default async function Home({ searchParams }) {
                         <SearchBar />
 
                         <div className="home__filters-container flex gap-3">
-                            <CustomFilter title="combustible" options={fuels} />
+                            <CustomFilter title="fuel" options={fuels} />
                             <CustomFilter
-                                title="año"
+                                title="year"
                                 options={yearsOfProduction}
                             />
                         </div>
