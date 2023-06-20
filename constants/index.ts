@@ -62,11 +62,11 @@ export const fuels = [
     },
     {
         title: "Gasolina",
-        value: "Gasolina"
+        value: "gas"
     },
     {
         title: "Electricidad",
-        value: "Electricidad"
+        value: "electricity"
     }
 ];
 
