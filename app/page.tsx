@@ -1,5 +1,12 @@
-import { Hero, SearchBar, CustomFilter, Header, Footer } from "@/components";
-import GridCars from "@/components/gridCars";
+import {
+    Hero,
+    GridCars,
+    SearchBar,
+    CustomFilter,
+    Header,
+    Footer
+} from "@/components";
+import { fuels, yearsOfProduction } from "@/constants";
 import getCars from "@/utils/getCars";
 
 export default async function Home({ searchParams }) {
@@ -31,10 +38,12 @@ export default async function Home({ searchParams }) {
                     <div className="home__filters">
                         <SearchBar />
 
-                        <div className="home__filters-container">
-                            <CustomFilter title="combustible" />
-                            <CustomFilter title="año" />
-                            <CustomFilter title="modelo" />
+                        <div className="home__filters-container flex gap-3">
+                            <CustomFilter title="combustible" options={fuels} />
+                            <CustomFilter
+                                title="año"
+                                options={yearsOfProduction}
+                            />
                         </div>
                     </div>
                     {!isDataEmpty ? (
