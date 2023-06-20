@@ -4,17 +4,18 @@ import {
     SearchBar,
     CustomFilter,
     Header,
-    Footer
+    Footer,
+    ShowMore
 } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
 import getCars from "@/utils/getCars";
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: any) {
     const allCars = await getCars({
         manufacturer: searchParams.manufacturer || "",
         year: searchParams.year || 2023,
         fuel: searchParams.fuel || "",
-        limit: searchParams.limit || 10,
+        limit: searchParams.limit || 9,
         model: searchParams.model || ""
     });
     const isDataEmpty =
@@ -47,7 +48,15 @@ export default async function Home({ searchParams }) {
                         </div>
                     </div>
                     {!isDataEmpty ? (
-                        <GridCars cars={allCars} />
+                        <>
+                            <GridCars cars={allCars} />
+                            <ShowMore
+                                pageNumber={(searchParams.limit || 10) / 10}
+                                isNext={
+                                    (searchParams.limit || 9) > allCars.length
+                                }
+                            />
+                        </>
                     ) : (
                         <div className="hoem__error-container">
                             <h2 className="dark:text-white font-semibold text-3xl">
