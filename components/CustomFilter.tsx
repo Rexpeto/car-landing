@@ -1,7 +1,57 @@
-const CustomFilter = ({ title }) => {
+"use client";
+import { useState, Fragment } from "react";
+import { useRouter } from "next/navigation";
+import { Listbox, Transition } from "@headlessui/react";
+import { customFilterProps } from "@/types";
+import { BsArrowDownShort } from "react-icons/bs";
+
+const CustomFilter = ({ title, options }: customFilterProps) => {
+    const [selected, setSelected] = useState(options[0]);
+
     return (
-        <div>
-            <h3>Filter</h3>
+        <div className="w-fit">
+            <Listbox value={selected} onChange={e => setSelected(e)}>
+                <div className="relative w-fit z-10">
+                    <Listbox.Button className="custom-filter__btn dark:bg-gray-800 dark:text-white dark:border-gray-700">
+                        <span className="block truncate">{selected.title}</span>
+                        <BsArrowDownShort />
+                    </Listbox.Button>
+                    <Transition
+                        as={Fragment}
+                        leave="transition ease-in duration-100"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <Listbox.Options className="custom-filter__options dark:bg-gray-800">
+                            {options.map(option => (
+                                <Listbox.Option
+                                    key={option.title}
+                                    value={option}
+                                    className={({ active }) =>
+                                        `relative select-none py-2 px-4 dark:text-white scroll-smooth ${
+                                            active
+                                                ? "bg-primary-blue text-white"
+                                                : "dark:bg-gray-800"
+                                        } transition duration-150`
+                                    }
+                                >
+                                    {({ selected }) => (
+                                        <span
+                                            className={`block truncate ${
+                                                selected
+                                                    ? "font-bold"
+                                                    : "font-medium"
+                                            }`}
+                                        >
+                                            {option.title}
+                                        </span>
+                                    )}
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </Transition>
+                </div>
+            </Listbox>
         </div>
     );
 };
